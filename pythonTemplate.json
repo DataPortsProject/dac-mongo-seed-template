@@ -1,0 +1,186 @@
+[
+  {
+    "_id": "60d2d33fb18323113d95bd5f",
+    "source": "agent-api",
+    "type": "on-demand",
+    "datamodel": null,
+    "template": {
+      "rules": {
+        "url_api": [
+          {
+            "required": true,
+            "message": "Please enter the URL of the API"
+          }
+        ],
+        "data_provider": [
+          {
+            "required": true,
+            "message": "Please enter the provider of the data"
+          }
+        ],
+        "callback_url": [
+          {
+            "required": true,
+            "message": "Please enter the callback url"
+          }
+        ]
+      },
+      "elements": [
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "URL"
+          },
+          "detail": {
+            "name": "url_api"
+          }
+        },
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "DATA PROVIDER"
+          },
+          "detail": {
+            "name": "data_provider"
+          }
+        },
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "CALLBACK URL"
+          },
+          "detail": {
+            "name": "callback_url"
+          }
+        }
+      ]
+    },
+    "constants": "./src/templates/scripts/agent-api-on_demand/constants.py",
+    "dockerFile": "./src/templates/scripts/agent-api-on_demand/Dockerfile",
+    "script": "./src/templates/scripts/agent-api-on_demand/agent.py"
+  },
+  {
+    "_id": "60d2d3825b6e20becc7dfb1a",
+    "source": "agent-api",
+    "type": "publish-subscribe",
+    "datamodel": null,
+    "template": {
+      "rules": {
+        "url_api": [
+          {
+            "required": true,
+            "message": "Please enter the URL of the API"
+          }
+        ],
+        "data_provider": [
+          {
+            "required": true,
+            "message": "Please enter the provider of the data"
+          }
+        ],
+        "orion_url": [
+          {
+            "required": true,
+            "message": "Please enter the IP of the ORION Context Broker. Default: http://158.42.188.129"
+          }
+        ],
+        "orion_port": [
+          {
+            "required": true,
+            "message": "Please enter the port of the ORION Context Broker. Default: 8080"
+          }
+        ],
+        "time_unit": [
+          {
+            "required": true,
+            "message": "Please select the time unit for the execution of the agent"
+          }
+        ],
+        "time_interval": [
+          {
+            "required": true,
+            "message": "Please introduce the time interval for the execution of the agent"
+          }
+        ]
+      },
+      "elements": [
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "URL"
+          },
+          "detail": {
+            "name": "url_api"
+          }
+        },
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "DATA PROVIDER"
+          },
+          "detail": {
+            "name": "data_provider"
+          }
+        },
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "ORION URL"
+          },
+          "detail": {
+            "name": "orion_url"
+          }
+        },
+        {
+          "tag": "el-input",
+          "item": {
+            "label": "ORION PORT"
+          },
+          "detail": {
+            "name": "orion_port"
+          }
+        },
+        {
+          "tag": "el-select",
+          "item": {
+            "label": "TIME UNIT"
+          },
+          "detail": {
+            "name": "time_unit",
+            "items": [
+              {
+                "label": "Seconds",
+                "value": "SECONDS"
+              },
+              {
+                "label": "Minutes",
+                "value": "MINUTES"
+              },
+              {
+                "label": "Hours",
+                "value": "HOURS"
+              },
+              {
+                "label": "Days",
+                "value": "DAYS"
+              }
+            ]
+          }
+        },
+        {
+          "tag": "el-input-number",
+          "item": {
+            "label": "TIME INTERVAL"
+          },
+          "detail": {
+            "name": "time_interval",
+            "min": 0
+          }
+        }
+      ]
+    },
+    "constants": "./src/templates/scripts/agent-api-subscribe/constants.py",
+    "dockerFile": "./src/templates/scripts/agent-api-subscribe/Dockerfile",
+    "script": "./src/templates/scripts/agent-api-subscribe/agent.py"
+  }
+]
